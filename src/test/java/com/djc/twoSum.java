@@ -1,7 +1,6 @@
 package com.djc;
 
 import org.junit.jupiter.api.Test;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,6 +34,13 @@ import java.util.Map;
  * 进阶：你可以想出一个时间复杂度小于 O(n2) 的算法吗？
  */
 public class twoSum {
+    @Test
+    void test(){
+        int[] nums = {3,3};
+        int target = 6;
+        Solution solution = new Solution();
+        System.out.println(solution.twoSum1(nums, target)[0]+" "+solution.twoSum1(nums, target)[1]);
+    }
 //我的方法
     class Solution {
     //我的方法
