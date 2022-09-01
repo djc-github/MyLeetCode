@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Author 邓金昌
+ * @Author djc
  * @Date 2022/9/1 20:40
  * @Version 1.0
  * @Description 给定一个整数数组 nums和一个整数目标值 target，请你在该数组中找出 和为目标值 target 的那 两个 整数，并返回它们的数组下标。
