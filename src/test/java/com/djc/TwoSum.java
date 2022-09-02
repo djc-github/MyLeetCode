@@ -35,7 +35,7 @@ import java.util.function.Consumer;
  * <p>
  * 进阶：你可以想出一个时间复杂度小于 O(n2) 的算法吗？
  */
-public class twoSum {
+public class TwoSum {
 
     @Test
     void test() {
@@ -43,15 +43,13 @@ public class twoSum {
         for (int i = 1; i < 4; ++i) {
             int finalI = i;
             new Thread(
-                    () -> {
-                        solutionNumConsumer(finalI, (num) -> {
-                            try {
-                                show(num);
-                            } catch (Exception e) {
-                                throw new RuntimeException(e);
-                            }
-                        });
-                    }
+                    () -> solutionNumConsumer(finalI, (num) -> {
+                        try {
+                            show(num);
+                        } catch (Exception e) {
+                            throw new RuntimeException(e);
+                        }
+                    })
             ).start();
         }
     }
@@ -67,11 +65,11 @@ public class twoSum {
         Solutions solutions = new Solutions();
         Method method = solutionsClass.getMethod("solution" + solutionNum, int[].class, int.class);
         int[] invoke = (int[]) method.invoke(solutions, nums, target);
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (int i : invoke) {
-            result += i + ",";
+            result.append(i).append(",");
         }
-        result = result.substring(0, result.length() - 1);
+        result = new StringBuilder(result.substring(0, result.length() - 1));
         System.out.println("solution" + solutionNum + "的结果:" + result);
     }
 
@@ -112,7 +110,7 @@ public class twoSum {
         //时间复杂度：O(N)，其中 N 是数组中的元素数量。对于每一个元素 x，我们可以 O(1)O(1) 地寻找 target - x。
         //空间复杂度：O(N)，其中 N 是数组中的元素数量。主要为哈希表的开销。
         public int[] solution3(int[] nums, int target) {
-            Map<Integer, Integer> hashtable = new HashMap<Integer, Integer>();
+            Map<Integer, Integer> hashtable = new HashMap<>();
             for (int i = 0; i < nums.length; ++i) {
                 if (hashtable.containsKey(target - nums[i])) {
                     return new int[]{hashtable.get(target - nums[i]), i};
