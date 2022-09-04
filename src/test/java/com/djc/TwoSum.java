@@ -39,7 +39,6 @@ public class TwoSum {
 
     @Test
     void test() {
-//        System.out.println(solution.twoSum1(nums, target)[0] + " " + solution.twoSum1(nums, target)[1]);
         for (int i = 1; i < 4; ++i) {
             int finalI = i;
             new Thread(
